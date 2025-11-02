@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
 import Map from './components/Map'
-import IntroModal from './components/IntroModal'
+import IntroPage from './components/IntroModal' // componente convertido a página
 import './styles/index.css'
 
 export default function App() {
-  // true = mostrar modal de intro al cargar
-  const [showIntro, setShowIntro] = useState(true)
+  // 'intro' o 'map' — la intro ahora es una pestaña/página propia
+  const [view, setView] = useState('intro')
 
   return (
     <div className="App">
-      {/* El mapa puede renderizarse detrás del modal; el overlay del modal lo cubrirá */}
-      <Map />
-
-      <IntroModal
-        isOpen={showIntro}
-        onClose={() => setShowIntro(false)}
-      />
+      {view === 'intro' ? (
+        <IntroPage onStart={() => setView('map')} />
+      ) : (
+        <Map onOpenIntro={() => setView('intro')} />
+      )}
     </div>
   )
 }

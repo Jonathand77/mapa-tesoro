@@ -110,6 +110,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;          /* evita que el modal toque los bordes en pantallas pequeñas */
   z-index: 60;
 }
 
@@ -157,4 +158,135 @@ body {
   padding: 8px 12px;
   border-radius: 6px;
   border: none;
+}
+
+/* Botón de info sobre el mapa */
+.info-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 45;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: 3px solid rgba(255,215,0,0.9);
+  display: grid;
+  place-items: center;
+  font-family: 'Pirata One', cursive;
+  font-size: 20px;
+  color: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+/* Modal tipo pergamino usando imagen de fondo */
+.parchment-modal {
+  width: min(760px, 96vw);
+  max-width: 760px;
+  max-height: calc(100vh - 40px); /* evita que sobrepase la ventana */
+  /* La carpeta public se sirve en la raíz, por eso usamos /img/Template1.jpg */
+  background-image: url('/public/img/Template1.jpg');
+  /* Mostrar el pergamino centrado y escalado verticalmente para ocupar mucho del alto
+     pero sin dejar que el texto use las columnas laterales de la imagen */
+  background-size: auto 100%;     /* escalar la imagen al 100% de la altura del contenedor */
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Reducimos padding horizontal y confiamos en .parchment-inner para el ancho del texto */
+  padding: 120px 250px 55px 250px;
+  box-sizing: border-box;
+  overflow: auto;                 /* permite scroll interno si el texto es largo */
+  border-radius: 8px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+  z-index: 70;
+}
+
+/* Contenedor de texto sobre el pergamino (transparenta fondo) */
+.parchment-inner {
+  /* Limitamos el ancho del texto para que no invada las columnas laterales del pergamino */
+  width: 100%;
+  max-width: 380px;              /* ancho de lectura dentro del pergamino */
+  margin: 0 auto;                /* centrar dentro del pergamino */
+  color: #3b2b1b;
+  font-size: 18px;
+  line-height: 1.45;
+  overflow: auto;
+  max-height: calc(100vh - 180px); /* deja espacio para encabezado y botones */
+  padding: 15 12px;               /* espacio lateral dentro del bloque de texto */
+  text-align: left;
+}
+
+/* Títulos y énfasis con Pirata One */
+.parchment-title {
+  font-family: 'Pirata One', cursive;
+  font-size: 32px;
+  margin: 0 0 8px 0;
+  color: #2b1708;
+  text-align: center;
+}
+
+.parchment-strong {
+  font-family: 'Pirata One', cursive;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 10px;
+  text-align: center;
+  color: #2b1708;
+}
+
+/* Cerrar (x) y botón iniciar coherentes con el estilo */
+.parchment-modal .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: rgba(255,255,255,0.0);
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #2b1708;
+  z-index: 90;
+}
+
+.parchment-modal .ok-btn {
+  align-self: center;
+  margin-top: 12px;
+  background: rgba(196,127,52,0.95);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Pirata One', cursive;
+  z-index: 80;
+}
+
+/* Página de intro que usa el pergamino como elemento central; evita scroll horizontal */
+.intro-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Ajustes responsive: menos padding en móviles */
+@media (max-width: 480px) {
+  .parchment-modal {
+    padding: 40px 18px 18px;
+    background-position: center 6px;
+  }
+  .parchment-inner { font-size: 15px; max-height: calc(100vh - 140px); max-width: 92%; }
+  .parchment-title { font-size: 28px; }
+}
+
+@media (min-width: 1200px) {
+  /* En pantallas muy grandes permitimos un pergamino más ancho */
+  .parchment-modal { max-width: 880px; }
+  .parchment-inner { max-width: 620px; }
 }
