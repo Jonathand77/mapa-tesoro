@@ -285,8 +285,56 @@ body {
   .parchment-title { font-size: 28px; }
 }
 
+/* Ajustes específicos para dispositivos móviles estrechos: escalar el pergamino al ancho
+   y reducir el bloque de texto para que no quede fuera de la imagen */
+@media (max-width: 420px) {
+  .intro-page {
+    /* llenar el ancho con el pergamino para evitar barras laterales donde el texto pueda quedar fuera */
+    background-size: 100% auto;
+    background-position: center top;
+  }
+
+  .parchment-inner {
+    max-width: 80%;     /* dejar margen lateral que respete las curvas del pergamino */
+    padding: 62px 14px 20px 14px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .parchment-title { font-size: 24px; margin-top: 6px; }
+  .ok-btn { padding: 8px 12px; }
+}
+
 @media (min-width: 1200px) {
   /* En pantallas muy grandes permitimos un pergamino más ancho */
   .parchment-modal { max-width: 880px; }
   .parchment-inner { max-width: 620px; }
+}
+
+/* Ajustes adicionales para botones y marcadores en pantallas pequeñas */
+@media (max-width: 480px) {
+.ok-btn {
+padding: 5px 10px;
+font-size: 10px;
+border-radius: 6px;
+}
+
+/* Botón de información en el mapa */
+.info-btn {
+width: 36px;
+height: 36px;
+font-size: 16px;
+top: 10px;
+right: 10px;
+}
+
+/* Marcadores del mapa más pequeños */
+.map-marker {
+width: 17px;
+height: 17px;
+}
+
+.marker-label {
+font-size: 10px;
+}
 }
