@@ -1,58 +1,76 @@
-[
-  {
-    "id": 1,
-    "top": "72%",
-    "left": "37%",
-    "clue": "🏰 Aquí empieza tu viaje, valiente exploradora. Busca donde los secretos reposan entre muros y sombras.",
-    "prize": "Un abrazo grande y un beso 😘"
-  },
-  {
-    "id": 2,
-    "top": "62%",
-    "left": "17%",
-    "clue": "🐿 Un lugar de descanso, donde la calma canta… tu siguiente pista allí te aguarda.",
-    "prize": "Una nota romántica escondida 💌"
-  },
-  {
-    "id": 3,
-    "top": "48%",
-    "left": "31%",
-    "clue": "🔑 Solo quien escala la montaña del valor hallará la llave del corazón.",
-    "prize": "Una foto juntos en el recuerdo 📸"
-  },
-  {
-    "id": 4,
-    "top": "49%",
-    "left": "63%",
-    "clue": "🎡 Gira el destino y deja que la diversión te muestre el camino.",
-    "prize": "Una merienda sorpresa 🥐"
-  },
-  {
-    "id": 5,
-    "top": "36%",
-    "left": "49%",
-    "clue": "🏕 Donde las almas se reúnen junto al fuego, hallarás la chispa del siguiente deseo.",
-    "prize": "Un pequeño regalo simbólico 🎁"
-  },
-  {
-    "id": 6,
-    "top": "28%",
-    "left": "24%",
-    "clue": "🌲 El bosque susurra tu nombre... ¿podrás oír su secreto?",
-    "prize": "Un paseo sorpresa al atardecer 🌇"
-  },
-  {
-    "id": 7,
-    "top": "18%",
-    "left": "51%",
-    "clue": "💧 Donde el agua cae y el tiempo se detiene, allí tu tesoro casi te pertenece.",
-    "prize": "Un detalle hecho a mano 💕"
-  },
-  {
-    "id": 8,
-    "top": "23%",
-    "left": "77%",
-    "clue": "🏡 Has llegado al fin del viaje, donde el amor se revela en su máximo paisaje. 💖",
-    "prize": "El gran premio: cena romántica y sorpresa final 💖"
-  }
-]
+{
+  "stops": [
+    {
+      "id": 1,
+      "label": "1",
+      "x": 40,
+      "y": 57.3,
+      "title": "El Castillo",
+      "clue": "Busca la bandera negra.",
+      "prize": "Una flor"
+    },
+    {
+      "id": 2,
+      "label": "2",
+      "x": 16.5,
+      "y": 53.8,
+      "title": "La Laguna",
+      "clue": "Cuenta los patos.",
+      "prize": "Una nota"
+    },
+    {
+      "id": 3,
+      "label": "3",
+      "x": 35.5,
+      "y": 44.5,
+      "title": "La Montaña",
+      "clue": "Busca la llave dorada.",
+      "prize": "Una llave"
+    },
+    {
+      "id": 4,
+      "label": "4",
+      "x": 73.8,
+      "y": 44.5,
+      "title": "La Feria",
+      "clue": "Gira la rueda.",
+      "prize": "Un caramelo"
+    },
+    {
+      "id": 5,
+      "label": "5",
+      "x": 50.4,
+      "y": 32,
+      "title": "Las Choza",
+      "clue": "Toca la puerta de madera.",
+      "prize": "Un sobre"
+    },
+    {
+      "id": 6,
+      "label": "6",
+      "x": 23,
+      "y": 30.5,
+      "title": "El Bosque",
+      "clue": "Cuenta tres pinos altos.",
+      "prize": "Una pista"
+    },
+    {
+      "id": 7,
+      "label": "7",
+      "x": 41.2,
+      "y": 17,
+      "title": "La Cascada",
+      "clue": "Mira bajo la piedra húmeda.",
+      "prize": "Una sorpresa"
+    },
+    {
+      "id": 8,
+      "label": "8",
+      "x": 85.1,
+      "y": 18,
+      "title": "El Templo",
+      "clue": "Entra y busca el cofre.",
+      "prize": "El gran premio"
+    }
+  ]
+}

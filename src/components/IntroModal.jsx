@@ -1,25 +1,34 @@
-import { motion } from "framer-motion";
+import React from 'react'
 
-export default function IntroModal({ onStart }) {
+const IntroModal = ({ isOpen, onClose }) => {
+  if (!isOpen) return null
+
   return (
-    <motion.div
-      className="bg-white rounded-2xl shadow-2xl p-8 text-center max-w-md"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-    >
-      <h1 className="text-2xl font-bold mb-4">🌙 La Leyenda del Tesoro del Amor</h1>
-      <p className="text-gray-700 italic mb-6">
-        “En un reino de sueños y risas sin fin,  
-        yace un tesoro oculto, brillante y sutil.  
-        Ocho senderos marcan tu destino,  
-        y en cada paso hallarás tu camino.”
-      </p>
-      <button
-        onClick={onStart}
-        className="bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-400"
+    <div className="modal-overlay" onClick={onClose}>
+      <div
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Introducción del juego"
       >
-        Comenzar Aventura
-      </button>
-    </motion.div>
-  );
+        <header className="modal-header">
+          <h3 style={{ margin: 0 }}>Bienvenido al Tesoro</h3>
+        </header>
+
+        <div className="modal-body" style={{ fontFamily: "'Pirata One', cursive" }}>
+          <p>
+            Prepárate para una emocionante aventura. Explora el mapa, encuentra pistas y descubre
+            los tesoros ocultos. Cada número en el mapa es una parada con una pista y un premio.
+          </p>
+        </div>
+
+        <footer className="modal-footer">
+          <button className="ok-btn" onClick={onClose}>Comenzar</button>
+        </footer>
+      </div>
+    </div>
+  )
 }
+
+export default IntroModal

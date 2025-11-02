@@ -1,0 +1,160 @@
+/* Importar Pirata One desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
+:root{
+  --water: #088f8a; /* color principal del agua (ajusta si quieres otro tono) */
+  --accent: #a56b22;
+  --marker-bg: #fffbe6;
+  --marker-border: #ffd166;
+  --modal-accent: #8b5e34;
+}
+
+/* Forzar altura completa y fondo uniforme */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: var(--water);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ajuste del body: texto fuera del mapa */
+body {
+  /* Mantener fuente de sistema para párrafos generales, pero heredar Pirata One donde se necesite */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #2b2b2b;
+  background-color: var(--water);
+}
+
+/* Centrado y espacio (map-wrapper mantiene fondo transparente para integrarse) */
+.map-wrapper {
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 28px;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Contenedor del mapa: transparente para que se vea el fondo global */
+.map-container {
+  position: relative;
+  width: min(900px, 92vw);
+  max-width: 920px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Imagen del mapa ocupa todo el contenedor */
+.map-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Marcadores circulares */
+.map-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 2px solid #ffd700;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Tipografía Pirata One para números y textos importantes */
+.marker-label {
+  font-family: 'Pirata One', cursive;
+  font-weight: 400;
+  font-size: 16px;
+  color: #0b3b2e;
+}
+
+/* Aplicar Pirata One en encabezados y modal para coherencia "pirata" */
+.modal-content,
+.modal-header h3 {
+  font-family: 'Pirata One', cursive;
+}
+
+/* Punto de debug (aparece al shift+click) */
+.debug-point {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255,90,0,0.95);
+  border: 2px solid white;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* Modal: uso de colores más "aventura" */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.modal-content {
+  background: #fff;
+  width: 92%;
+  max-width: 420px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(90deg,#0b8b7a,#07a08f);
+  color: white;
+}
+
+.modal-body {
+  padding: 16px;
+  color: #222;
+  /* Texto del cuerpo también con Pirata One si quieres que todo sea consistente */
+  font-family: 'Pirata One', cursive;
+}
+
+.modal-footer {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-btn, .ok-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ok-btn {
+  background: #07a08f;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+}
