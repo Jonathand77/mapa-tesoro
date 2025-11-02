@@ -5,72 +5,96 @@
       "label": "1",
       "x": 40,
       "y": 57.3,
-      "title": "El Castillo",
-      "clue": "Busca la bandera negra.",
-      "prize": "Una flor"
+      "title": "🏰 El Inicio del Destino",
+      "clue": "Donde el viento acaricia la altura del mundo,",
+      "clue2": "comienza tu viaje valiente y profundo.",
+      "clue3": "Desde el mirador, contempla el camino,",
+      "clue4": "allí yace el inicio de tu dulce destino.",
+      "prize": "Un regalo"
     },
     {
       "id": 2,
       "label": "2",
       "x": 16.5,
       "y": 53.8,
-      "title": "La Laguna",
-      "clue": "Cuenta los patos.",
-      "prize": "Una nota"
+      "title": "🎯 El Salto del Valor",
+      "clue": "Deja que el aire te lleve al cielo,",
+      "clue2": "donde el corazón late sin recelo.",
+      "clue3": "En la cauchera que lanza hacia arriba,",
+      "clue4": "hallarás tu siguiente pista furtiva.",
+      "prize": "Un regalo"
     },
     {
       "id": 3,
       "label": "3",
       "x": 35.5,
       "y": 44.5,
-      "title": "La Montaña",
-      "clue": "Busca la llave dorada.",
-      "prize": "Una llave"
+      "title": "🌈 La Llave del Arcoíris",
+      "clue": "Deslízate entre colores que el cielo pintó,",
+      "clue2": "el arcoíris un secreto guardó.",
+      "clue3": "En su fin reluce una llave escondida,",
+      "clue4": "que abre el paso a la próxima partida.",
+      "prize": "Una llave y Un regalo"
     },
     {
       "id": 4,
       "label": "4",
       "x": 73.8,
       "y": 44.5,
-      "title": "La Feria",
-      "clue": "Gira la rueda.",
-      "prize": "Un caramelo"
+      "title": "🚗 El Choque del Destino",
+      "clue": "Entre risas y choques, la suerte gira,",
+      "clue2": "el amor en movimiento conspira.",
+      "clue3": "En los carritos que dan mil vueltas,",
+      "clue4": "hallarás la señal que el destino suelta.",
+      "prize": "Un regalo"
     },
     {
       "id": 5,
       "label": "5",
       "x": 50.4,
       "y": 32,
-      "title": "Las Choza",
-      "clue": "Toca la puerta de madera.",
-      "prize": "Un sobre"
+      "title": "🏹 El Blanco del Corazón",
+      "clue": "Afina la vista, respira el momento,",
+      "clue2": "el arco escucha tu pensamiento.",
+      "clue3": "Si al blanco aciertas con devoción,",
+      "clue4": "hallarás la pista y una bendición.",
+      "prize": "Un regalo"
     },
     {
       "id": 6,
       "label": "6",
       "x": 23,
       "y": 30.5,
-      "title": "El Bosque",
-      "clue": "Cuenta tres pinos altos.",
-      "prize": "Una pista"
+      "title": "🎨 El Taller del Recuerdo",
+      "clue": "En el rincón donde el arte respira,",
+      "clue2": "el color del alma se inspira.",
+      "clue3": "Pinta, crea, deja tu huella sincera,",
+      "clue4": "y allí hallarás la pista certera.",
+      "prize": "Un recuerdo y Un regalo"
     },
     {
       "id": 7,
       "label": "7",
       "x": 41.2,
       "y": 17,
-      "title": "La Cascada",
-      "clue": "Mira bajo la piedra húmeda.",
-      "prize": "Una sorpresa"
+      "title": "🍃 El Refugio del Encuentro",
+      "clue": "Bajo la sombra donde canta el viento,",
+      "clue2": "reposa la calma y el sentimiento.",
+      "clue3": "En la carpa donde el alma descansa,",
+      "clue4": "hallarás la pista que al amor lanza.",
+      "prize": "Un regalo"
     },
     {
       "id": 8,
       "label": "8",
       "x": 85.1,
       "y": 18,
-      "title": "El Templo",
-      "clue": "Entra y busca el cofre.",
-      "prize": "El gran premio"
+      "title": "🍷 El Tesoro Final",
+      "clue": "Has cruzado montañas, risas y mares,",
+      "clue2": "superado juegos, colores y azares.",
+      "clue3": "En el festín donde el amor florece,",
+      "clue4": "el tesoro te espera… y tu alma agradece.",
+      "prize": "El gran Tesoro"
     }
   ]
 }

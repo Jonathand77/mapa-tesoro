@@ -1,12 +1,14 @@
 import React, { useState, useRef } from 'react'
 import stopsData from '../data/stops.json'
 import ClueModal from './ClueModal'
-import '../styles/index.css' // o App.css según tu proyecto
+import { useProgress } from '../hooks/useProgress'
+import '../styles/index.css'
 
 export default function Map({ onOpenIntro }) {
   const [selected, setSelected] = useState(null)
   const [debugPoint, setDebugPoint] = useState(null)
   const imgRef = useRef(null)
+  const { currentStage, completeStage, isStageAvailable } = useProgress()
 
   // Normaliza la estructura importada: puede ser un array o un objeto { stops: [...] }
   const stops = Array.isArray(stopsData)
@@ -59,18 +61,22 @@ export default function Map({ onOpenIntro }) {
           onClick={handleMapClick}
         />
 
-        {stops.map(stop => (
-          <button
-            key={stop.id ?? stop.label}
-            className="map-marker"
-            style={{ left: `${stop.x}%`, top: `${stop.y}%` }}
-            onClick={() => setSelected(stop)}
-            aria-label={`Parada ${stop.id ?? stop.label} - ${stop.title}`}
-            title="Haz click para ver la pista"
-          >
-            <span className="marker-label">{stop.label}</span>
-          </button>
-        ))}
+        {stops.map(stop => {
+          const isAvailable = isStageAvailable(parseInt(stop.label));
+          return (
+            <button
+              key={stop.id ?? stop.label}
+              className={`map-marker ${!isAvailable ? 'marker-locked' : ''}`}
+              style={{ left: `${stop.x}%`, top: `${stop.y}%` }}
+              onClick={() => isAvailable && setSelected(stop)}
+              aria-label={`Parada ${stop.id ?? stop.label} - ${stop.title}`}
+              title={isAvailable ? "Haz click para ver la pista" : "Completa las pistas anteriores para desbloquear"}
+              disabled={!isAvailable}
+            >
+              <span className="marker-label">{stop.label}</span>
+            </button>
+          );
+        })}
 
         {debugPoint && (
           <div

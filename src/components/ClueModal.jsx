@@ -1,23 +1,50 @@
 import React from 'react'
-import '../styles/index.css'
+import { useProgress } from '../hooks/useProgress'
+import '../styles/ClueModal.css'
 
 export default function ClueModal({ stop, onClose }) {
+  const { currentStage, completeStage } = useProgress()
   if (!stop) return null
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <header className="modal-header">
-          <h3>{stop.title} — Pista #{stop.label}</h3>
-          <button className="close-btn" onClick={onClose}>×</button>
-        </header>
-        <div className="modal-body">
-          <p><strong>Pista:</strong> {stop.clue}</p>
-          <p><strong>Premio:</strong> {stop.prize}</p>
+    <div className="clue-modal-overlay" onClick={onClose}>
+      <div className="clue-modal" onClick={e => e.stopPropagation()}>
+        <div className="clue-modal-content">
+          <h3 className="clue-modal-title">{stop.title} — Pista # {stop.label}</h3>
+          
+          <div className="clue-text">
+            <strong>Pista:</strong> {stop.clue}
+          </div>
+          <div className="clue-text">
+            {stop.clue2}
+          </div>
+          <div className="clue-text">
+            {stop.clue3}
+          </div>
+          <div className="clue-text">
+            {stop.clue4}
+          </div>
+          <div className="clue-prize">
+            <strong>Premio:</strong> {stop.prize}
+          </div>
+
+          {parseInt(stop.label) === currentStage && (
+            <button
+              className="clue-complete-btn"
+              onClick={() => {
+                completeStage(currentStage);
+                onClose();
+              }}
+              aria-label="Marcar como completada"
+            >
+              ¡Completar pista!
+            </button>
+          )}
         </div>
-        <footer className="modal-footer">
-          <button onClick={onClose} className="ok-btn">Cerrar</button>
-        </footer>
+
+        <button className="clue-close-btn" onClick={onClose} aria-label="Cerrar">
+          Cerrar
+        </button>
       </div>
     </div>
   )
