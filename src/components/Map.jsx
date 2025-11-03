@@ -1,16 +1,17 @@
 import React, { useState, useRef } from 'react'
 import stopsData from '../data/stops.json'
 import ClueModal from './ClueModal'
-import { useProgress } from '../hooks/useProgress'
+import RulesModal from './RulesModal' // 👈 nuevo componente
+import { useProgressContext } from '../context/progressContext'
 import '../styles/index.css'
 
 export default function Map({ onOpenIntro }) {
   const [selected, setSelected] = useState(null)
+  const [showRules, setShowRules] = useState(false) // 👈 estado para reglas
   const [debugPoint, setDebugPoint] = useState(null)
   const imgRef = useRef(null)
-  const { currentStage, completeStage, isStageAvailable } = useProgress()
+  const { currentStage, isStageAvailable } = useProgressContext()
 
-  // Normaliza la estructura importada: puede ser un array o un objeto { stops: [...] }
   const stops = Array.isArray(stopsData)
     ? stopsData
     : Array.isArray(stopsData?.stops)
@@ -20,7 +21,9 @@ export default function Map({ onOpenIntro }) {
   if (!Array.isArray(stops) || stops.length === 0) {
     return (
       <div style={{ padding: 20 }}>
-        <p>No se encontraron paradas en <code>data/stops.json</code>. Revisa el formato (debe ser un array).</p>
+        <p>
+          No se encontraron paradas en <code>data/stops.json</code>. Revisa el formato.
+        </p>
       </div>
     )
   }
@@ -34,16 +37,16 @@ export default function Map({ onOpenIntro }) {
       const coords = { x: Number(x.toFixed(1)), y: Number(y.toFixed(1)) }
       setDebugPoint(coords)
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(`${coords.x},${coords.y}`).catch(()=>{})
+        navigator.clipboard.writeText(`${coords.x},${coords.y}`).catch(() => {})
       }
-      setTimeout(()=> setDebugPoint(null), 2500)
+      setTimeout(() => setDebugPoint(null), 2500)
     }
   }
 
   return (
     <div className="map-wrapper">
       <div className="map-container" role="application" aria-label="Mapa del tesoro">
-        {/* Botón de información: siempre reabre la pantalla de bienvenida */}
+        {/* Botón de información (intro) */}
         <button
           className="info-btn"
           aria-label="Información"
@@ -51,6 +54,16 @@ export default function Map({ onOpenIntro }) {
           onClick={() => onOpenIntro && onOpenIntro()}
         >
           i
+        </button>
+
+        {/* 👇 Nuevo botón de reglas */}
+        <button
+          className="rules-btn"
+          aria-label="Reglas"
+          title="Ver reglas del juego"
+          onClick={() => setShowRules(true)}
+        >
+           ⚖
         </button>
 
         <img
@@ -61,8 +74,8 @@ export default function Map({ onOpenIntro }) {
           onClick={handleMapClick}
         />
 
-        {stops.map(stop => {
-          const isAvailable = isStageAvailable(parseInt(stop.label));
+        {stops.map((stop) => {
+          const isAvailable = isStageAvailable(parseInt(stop.label))
           return (
             <button
               key={stop.id ?? stop.label}
@@ -70,12 +83,16 @@ export default function Map({ onOpenIntro }) {
               style={{ left: `${stop.x}%`, top: `${stop.y}%` }}
               onClick={() => isAvailable && setSelected(stop)}
               aria-label={`Parada ${stop.id ?? stop.label} - ${stop.title}`}
-              title={isAvailable ? "Haz click para ver la pista" : "Completa las pistas anteriores para desbloquear"}
+              title={
+                isAvailable
+                  ? 'Haz click para ver la pista'
+                  : 'Completa las pistas anteriores para desbloquear'
+              }
               disabled={!isAvailable}
             >
               <span className="marker-label">{stop.label}</span>
             </button>
-          );
+          )
         })}
 
         {debugPoint && (
@@ -87,12 +104,11 @@ export default function Map({ onOpenIntro }) {
         )}
       </div>
 
-      {selected && (
-        <ClueModal
-          stop={selected}
-          onClose={() => setSelected(null)}
-        />
-      )}
+      {/* Modal de pista */}
+      {selected && <ClueModal stop={selected} onClose={() => setSelected(null)} />}
+
+      {/* Modal de reglas */}
+      {showRules && <RulesModal onClose={() => setShowRules(false)} />}
     </div>
   )
 }

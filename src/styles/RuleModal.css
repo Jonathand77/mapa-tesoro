@@ -2,7 +2,7 @@
 .clue-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,38 +14,38 @@
   width: min(600px, 92vw);
   aspect-ratio: 4/3;
   position: relative;
-  background-image: url('/public/img/Template2.jpg');
+  background-image: url("/public/img/Template2.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
   padding: 65px 72px 60px;
   border-radius: 12px;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
 }
 
-.clue-modal-content {
+.rule-modal-content {
   width: 100%;
   max-width: 440px;
   margin: 0 auto;
   margin-left: auto;
   margin-right: 25px;
   color: #2b1708;
-  font-family: 'Pirata One', cursive;
+  font-family: "Pirata One", cursive;
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.clue-modal-title {
-  font-family: 'Pirata One', cursive;
+.rule-modal-title {
+  font-family: "Pirata One", cursive;
   font-size: 24px;
   margin: 0 0 12px 0;
   color: #2b1708;
   text-align: center;
-  margin-right: 100px
+  margin-right: 100px;
 }
 
 .clue-text {
@@ -64,7 +64,7 @@
   right: 16px;
   background: #07a08f;
   border: none;
-  font-family: 'Pirata One', cursive;
+  font-family: "Pirata One", cursive;
   font-size: 24px;
   color: #2b1708;
   cursor: pointer;
@@ -74,13 +74,13 @@
 }
 
 .clue-close-btn:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .clue-complete-btn {
   background: #07a08f;
   border: none;
-  font-family: 'Pirata One', cursive;
+  font-family: "Pirata One", cursive;
   font-size: 18px;
   color: #fff;
   cursor: pointer;
@@ -90,7 +90,7 @@
   display: block;
   transition: all 0.25s ease;
   width: fit-content; /* ajusta al tamaño del texto */
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
@@ -109,39 +109,39 @@
     width: min(360px, 92vw);
   }
 
-  .clue-modal-content {
-    margin-right: 0;
-    max-width: 100%;
-    gap: 4px;
-  }
-  
-  .clue-modal-title {
+  .rule-modal-title {
+    margin-left: auto;
+    margin-right: 100px;
+    max-width: 400px;
     font-size: 18px;
     margin-right: 0;
     margin-bottom: 8px;
   }
-  
+
+  .rule-modal-content {
+    margin-left: auto;
+    margin-right: 20px;
+    max-width: 400px;
+    margin-right: 0;
+    max-width: 100%;
+    gap: 4px;
+  }
+
   .clue-text {
     font-size: 15px;
     line-height: 0.9;
     margin-bottom: 2px;
   }
-  
+
   .clue-prize {
     font-size: 14px;
     margin-top: 2px;
   }
-  
+
   .clue-close-btn {
     font-size: 18px;
     padding: 2px 8px;
     top: 12px;
     right: 12px;
-  }
-
-  .clue-complete-btn {
-    font-size: 15px;
-    padding: 6px 14px;
-    margin-top: 10px;
   }
 }
